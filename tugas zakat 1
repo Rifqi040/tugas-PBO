@@ -1,0 +1,23 @@
+public static void main(String[] args) {
+        System.out.println("Selamat datang di Badan Penyalur Zakat ");
+        System.out.println("-------------------------------------- ");           
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Masukkan nama Anda: ");
+        String nama = input.nextLine();
+        
+        System.out.print("Masukkan jumlah kekayaan : ");
+        double angkaAwal = input.nextDouble();
+             
+        double persenDuaKomaLima = angkaAwal * 2.5 / 100;
+
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+        
+        System.out.println("Jumlah zakat yang perlu Anda bayarkan, 2,5% dari " 
+        + formatRupiah.format(angkaAwal) + " adalah " + formatRupiah.format(persenDuaKomaLima));
+        
+        input.close();
+        System.out.println("---------------------------------------- ");   
+        System.out.println("Terima kasih telah mempercayakan zakat Anda kepada kami.");
+    
+    }
