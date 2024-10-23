@@ -1,0 +1,60 @@
+package tugaszakat;
+
+import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+public class TugasZakat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);    
+        boolean running = true;
+        
+        System.out.println("Selamat datang di Badan Penyalur Zakat ");
+        System.out.println("-------------------------------------- ");
+        while (running){
+            System.out.println("Pilih Zakat yang ingin Dihitung");
+            System.out.println("1. Zakat Fitrah");
+            System.out.println("2. Zakat Mal");
+            System.out.println("3. keluar");
+            
+            System.out.println("Silakan Pilih Opsi");
+            int pilihan = scanner.nextInt();
+            
+            switch (pilihan){
+            case 1:
+            System.out.print("Masukan jumlah jiwa(orang): ");
+            int jumlahjiwa = scanner.nextInt();
+            System.out.print("Masukan harga beras per kilogram: ");
+            double hargaBeras = scanner.nextDouble();
+            double zakatFitrah = jumlahjiwa * 2.5 * hargaBeras;
+            System.out.println("zakat fitrah yang harus dibayar : Rp"+ zakatFitrah);
+            break;
+            
+            case 2:
+            System.out.print("masukan total harta (Dalam Rupiah): ");
+            double totalHarta = scanner.nextDouble();
+            System.out.print("Masukan nisab (misalnya 85 gram emas dalam Rupiah): ");
+            double nisab = scanner.nextDouble();
+            if (totalHarta >= nisab){
+                double zakatMal = totalHarta * 0.025;
+                System.out.println("Zakat Mal yang harus dibayar : Rp" + zakatMal);
+            }else{
+                System.out.println("Total harta belum mencapai nisab. Tidak wajib membayar zakat Mal.");
+            }
+            break;
+            
+            case 3:
+                running = false;
+                System.out.println("---------------------------------------- ");   
+                System.out.println("Terima kasih telah mempercayakan zakat Anda kepada kami.");
+                break;
+            default:
+                System.out.println("Pilihan tidak valid.");
+                break;
+        }
+           System.out.println("By Rifqi"); 
+        }
+        scanner.close();
+    }
+  
+}
